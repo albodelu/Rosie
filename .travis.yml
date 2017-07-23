@@ -5,8 +5,6 @@ group: edge
 
 android:
   components:
-    - platform-tools
-    - tools
     - build-tools-23.0.3
     - android-23
     - android-22
@@ -16,7 +14,7 @@ android:
     - sys-img-armeabi-v7a-android-22
 
 before_script:
-  - echo no | avdmanager create avd --name test --package "system-images;android-22;default;armeabi-v7a"
+  - echo no | android create avd -f --name test -t android-25 --abi armeabi-v7a --tag google_apis
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell settings put global window_animation_scale 0 &
