@@ -14,7 +14,7 @@ android:
     - sys-img-armeabi-v7a-android-22
 
 before_script:
-  - echo no | android create avd -f --name test -t android-25 --abi armeabi-v7a --tag google_apis
+  - echo no | android create avd -f --name test -t android-25 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell settings put global window_animation_scale 0 &
